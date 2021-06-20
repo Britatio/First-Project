@@ -1,0 +1,85 @@
+*	{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+
+}
+body{
+	background-color:#21466c;
+
+}
+
+header{
+	background: white;
+	padding 100px;
+}
+header > h1{
+	color: #120949;
+	text-align: center;
+	font-family: Pixer;
+	font-size: 30px;
+}
+
+.score-board{
+	margin: 20px auto;
+	border: 3px solid red;
+	text-align: center;
+	width: 400px;
+	color:white;
+	font-size: 100px;
+	font-family: Pixer;
+	padding:4px 4px;
+	position:  relative;
+}
+
+.badge{
+	background-color:#924646;
+	border-radius: 10%;
+	color: white;
+	font-size: 30px;
+	font-family: Pixer;
+} 
+#user-label{
+	position: absolute;
+	top:5px;
+	left:90px;
+}
+#computer-label{
+	position: absolute;
+	top:5px;
+	left:250px;
+}
+
+.choices{
+	text-align:  center;
+	margin: 5px 0;
+}
+
+.potato {
+	border:  4px solid red; 
+	margin: 0 35;
+	padding:1px;
+	display: inline-block;
+	transition: all 0.8s ease;
+
+}
+.potato:hover{
+	cursor: pointer;
+	background-color: #211722;
+}
+
+#action-message{
+	text-align: center;
+	color: white;
+	font-family: Pixer;
+	font-style:italic;
+	font-size: 50;
+}
+.result{
+	margin: 10px;
+	text-align: center;
+	font-family: Pixer;
+	font-size: 40;
+}
+
+
