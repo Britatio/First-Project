@@ -9,6 +9,8 @@ const scoreBoard_div = document.querySelector(".score-board");
 const rock_div= document.getElementById("r");
 const paper_div= document.getElementById("p");
 const scissors_div= document.getElementById("s");
+const result_p = document.querySelector(".result")
+
 
 function getComputerChoice() {
 	const choices =['r','p','s'];
@@ -26,19 +28,40 @@ function win(userChoice, computerChoice){
 	userScore++;
 	userScore_span.innerHTML = userScore;
 	comp_Score_span.innerHTML = comp_Score;
+	result_p.innerHTML = "User Wins by using " + convertToWord(userChoice);
+	document.getElementById(userChoice).classList.add('blue');
+	document.getElementById(computerChoice).classList.add('grey');
+	setTimeout(function(){document.getElementById(userChoice).classList.remove('blue') }, 1500);
+	setTimeout(function(){document.getElementById(computerChoice).classList.remove('grey') }, 1500);
+	document.querySelector(".score-board").classList.add('blue');
+	setTimeout(function(){document.querySelector(".score-board").classList.remove('blue') }, 1800);
+
 	console.log("User Win");
 }
 
-function lose(){ 
+
+function lose(userChoice, computerChoice){ 
 	comp_Score++;
 	userScore_span.innerHTML = userScore;
 	comp_Score_span.innerHTML = comp_Score;
-
-	
+	result_p.innerHTML = "Computer Wins by using " + convertToWord(computerChoice);
+	document.getElementById(computerChoice).classList.add('yellow');
+	document.getElementById(userChoice).classList.add('grey');
+	setTimeout(function(){document.getElementById(userChoice).classList.remove('grey') }, 1500);
+	setTimeout(function(){document.getElementById(computerChoice).classList.remove('yellow') }, 1500);
+	document.querySelector(".score-board").classList.add('yellow');
+	setTimeout(function(){document.querySelector(".score-board").classList.remove('yellow') }, 1800);
 	console.log("Computer Win");
 }
 
-function draw(){
+function draw(userChoice, computerChoice){
+	result_p.innerHTML = "It's a Draw"
+	document.getElementById(computerChoice).classList.add('grey');
+	document.getElementById(userChoice).classList.add('grey');
+	setTimeout(function(){document.getElementById(userChoice).classList.remove('grey') }, 1500);
+	setTimeout(function(){document.getElementById(computerChoice).classList.remove('grey') }, 1500);
+		document.querySelector(".score-board").classList.add('grey');
+	setTimeout(function(){document.querySelector(".score-board").classList.remove('grey') }, 1800);
 	console.log("Draw");
 	
 }
@@ -72,6 +95,7 @@ function game(userChoice){
 function main(){
 	rock_div.addEventListener('click', function(){
 		game("r");
+
 	})
 
 	paper_div.addEventListener('click', function(){
